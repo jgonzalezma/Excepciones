@@ -29,10 +29,10 @@ public class AlturaPeso {
 		}
 		
 	catch (NullPointerException ex){
-		// SE EJECUTA CUANDO ALGUNA VARIABLE DE LA DIVISIÓN ES NULL
+		// se ejecuta cuando es null
 		System.err.println("Alguna variable es nula --> Error: " + ex.getMessage()); 
 	} catch(NumberFormatException ex){
-		// SE EJECUTA SI EL STRING NO SE PUEDE PASAR A INT 
+		// se ejecuta si el string no es un numero
 		System.err.println("El string no es un número --> Error: " + ex.getMessage());
 		}
 	}
