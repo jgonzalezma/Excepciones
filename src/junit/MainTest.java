@@ -11,21 +11,10 @@ public class MainTest {
 	@Test
 	public void testFormat() {
 		try {
-			AlturaPeso.calcularImc2("180", "d");
-			fail("WTF");
+			AlturaPeso.calcularImc2("180", "27,8");
+			fail("Error");
 		} catch (NumberFormatException e) {
-			System.err.println("Error Formato");
+			System.err.println("Debe de introducir un numero entero");
 		}
 	}
-	
-	@Test
-	public void testNull() {
-		try {
-			AlturaPeso.calcularImc2("180", null);
-			fail("Pero que hacees!!");
-		} catch (NullPointerException e) {
-			System.err.println("Error Null");
-		}
-	}
-
 }
