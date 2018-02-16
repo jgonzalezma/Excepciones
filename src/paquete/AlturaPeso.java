@@ -1,39 +1,60 @@
 package paquete;
 
-import java.io.File;
 import java.util.Scanner;
-import java.io.IOException;
 
 public class AlturaPeso {
-
-	public static void main(String[] args) {
-		int altura = 0;
-		int peso = 0;
-		Scanner scan = new Scanner(System.in);
+	static int altura;
+	static int peso;
+	static Scanner scan = new Scanner(System.in);
+	
+	public static void calcularImc2(String altura_str, String peso_str) throws NullPointerException, NumberFormatException{
 		
-		try {
-			System.out.println("Introduce tu altura en cm");
-			altura = Integer.parseInt(scan.nextLine());
-			altura = altura/10;
-			System.out.println("Introduce tu peso en kg");
-			peso = Integer.parseInt(scan.nextLine());
-			
-			int imc = peso/(altura^2);
-			if(imc<5){
-				System.out.println("Estas flaco");
-				
-			}else{
-				System.out.println("Estas gordito");
-			}
-			
-		}
+		int altura = Integer.parseInt(altura_str);
+		int peso = Integer.parseInt(peso_str);
 		
-	catch (NullPointerException ex){
-		// se ejecuta cuando es null
-		System.err.println("Alguna variable es nula --> Error: " + ex.getMessage()); 
-	} catch(NumberFormatException ex){
-		// se ejecuta si el string no es un numero
-		System.err.println("El string no es un número --> Error: " + ex.getMessage());
+		if(altura <= 0){
+			System.out.println("El numero no puede ser 0 o menos");
+			calcularImc();
+		}else{
+		altura = altura/10;
+		if(peso <= 0){
+			System.out.println("El numero no puede ser 0 o menos");
+			calcularImc();
+		}else{
+		
+		int imc = peso/(altura^2);
+		if(imc<5){
+			System.out.println("Estas flaco");
+			
+		}else{
+			System.out.println("Estas gordito");
 		}
-	}
+	}}
 }
+	
+	
+	public static void calcularImc(){
+		
+		System.out.println("Introduce tu altura en cm");
+		altura = Integer.parseInt(scan.nextLine());
+		if(altura <= 0){
+			System.out.println("El numero no puede ser 0 o menos");
+			calcularImc();
+		}else{
+		altura = altura/10;
+		System.out.println("Introduce tu peso en kg");
+		peso = Integer.parseInt(scan.nextLine());
+		if(peso <= 0){
+			System.out.println("El numero no puede ser 0 o menos");
+			calcularImc();
+		}else{
+		
+		int imc = peso/(altura^2);
+		if(imc<5){
+			System.out.println("Estas flaco");
+			
+		}else{
+			System.out.println("Estas gordito");
+		}
+	}}
+}}
